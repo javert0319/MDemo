@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter
 import com.alibaba.android.arouter.launcher.ARouter
 import com.nbhope.chia.brvah.BrvahActivity
 import com.nbhope.chia.brvah.ChoiceActivity
+import com.nbhope.chia.brvah.SelectedActivity
 import com.nbhope.chia.cache.CacheActivity
 import com.nbhope.chia.rxjava.RxJavaActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -30,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         data.add("BRAVH")
         data.add("缓存")
         data.add("单选")
+        data.add("单选、全选、反选")
         return data
     }
 
@@ -42,6 +44,7 @@ class MainActivity : AppCompatActivity() {
                 1 -> targetClass = BrvahActivity::class.java
                 2 -> targetClass = CacheActivity::class.java
                 3 -> targetClass = ChoiceActivity::class.java
+                4 -> targetClass = SelectedActivity::class.java
             }
             if (targetClass != null){
                 val intent = Intent(this@MainActivity,targetClass)

@@ -10,7 +10,6 @@ import com.nbhope.chia.brvah.adapter.ChoiceAdapter
 import com.nbhope.chia.brvah.bean.ChoiceBean
 import kotlinx.android.synthetic.main.activity_choice.*
 
-
 class ChoiceActivity : AppCompatActivity() {
 
     var mStaggeredGridLayoutManager: StaggeredGridLayoutManager? = null
@@ -40,7 +39,7 @@ class ChoiceActivity : AppCompatActivity() {
         val datas = ArrayList<ChoiceBean>()
         for (i in 0..19) {
             datas.add(ChoiceBean("满100减99"))
-            datas.add(ChoiceBean("满100减98", if (i == 0) true else false))
+            datas.add(ChoiceBean("满100减98", i == 0))
             datas.add(ChoiceBean("满100减97"))
             datas.add(ChoiceBean("满100减96"))
             datas.add(ChoiceBean("满100减95"))

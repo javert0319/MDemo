@@ -1,7 +1,6 @@
 package com.nbhope.chia;
 
 import android.app.Application;
-import com.nbhope.chia.cache.network.NetFacade;
 import com.nbhope.chia.cache.utils.BitmapUtils;
 
 /**
@@ -23,6 +22,5 @@ public class App extends Application {
         super.onCreate();
         instance = this;
         BitmapUtils.init();
-        NetFacade.init(this);
     }
 }
