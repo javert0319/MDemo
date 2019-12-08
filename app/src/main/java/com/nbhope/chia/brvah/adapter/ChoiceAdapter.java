@@ -12,6 +12,7 @@ import android.widget.*;
 import com.nbhope.chia.R;
 import com.nbhope.chia.brvah.bean.ChoiceBean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ChoiceAdapter extends RecyclerView.Adapter<ChoiceAdapter.ChoiceVH> {
@@ -24,7 +25,9 @@ public class ChoiceAdapter extends RecyclerView.Adapter<ChoiceAdapter.ChoiceVH> 
 
     private RecyclerView mRv;//实现单选方法三： RecyclerView另一种定向刷新方法：
 
-    private boolean isChecked = false;
+    private List<ChoiceBean> checkedData = new ArrayList<>();
+
+    private onItemCheckListener itemCheckListener;
 
     public ChoiceAdapter(List<ChoiceBean> datas,Context context,RecyclerView rv){
         this.mDatas = datas;
@@ -52,7 +55,7 @@ public class ChoiceAdapter extends RecyclerView.Adapter<ChoiceAdapter.ChoiceVH> 
         holder.ivSelect.setSelected(mDatas.get(position).isSelected());
         holder.tvCoupon.setText(mDatas.get(position).getName());
         holder.cbSelect.setChecked(mDatas.get(position).isSelected());
-
+        
         holder.llSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,11 +69,14 @@ public class ChoiceAdapter extends RecyclerView.Adapter<ChoiceAdapter.ChoiceVH> 
                 notifyDataSetChanged();
                 if (mDatas.get(position).isSelected()){
                     // 选中
-                    Toast.makeText(mContext, "选中："+mDatas.get(position).getName(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(mContext, "选中："+mDatas.get(position).getName(), Toast.LENGTH_SHORT).show();
+                    checkedData.add(mDatas.get(position));
                 }else {
                     // 取消
-                    Toast.makeText(mContext, "取消："+mDatas.get(position).getName(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(mContext, "取消："+mDatas.get(position).getName(), Toast.LENGTH_SHORT).show();
+                    checkedData.remove(mDatas.get(position));
                 }
+                itemCheckListener.itemCheck(checkedData);
             }
         });
         holder.cbSelect.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -182,5 +188,13 @@ public class ChoiceAdapter extends RecyclerView.Adapter<ChoiceAdapter.ChoiceVH> 
             cbSelect = itemView.findViewById(R.id.cb_select);
             llSelect = itemView.findViewById(R.id.ll_select);
         }
+    }
+
+    public void setOnItemCheckListener(onItemCheckListener listener){
+        this.itemCheckListener = listener;
+    }
+
+    public interface onItemCheckListener{
+        void itemCheck(List<ChoiceBean> bean);
     }
 }

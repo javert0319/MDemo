@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager
 import com.nbhope.chia.R
 import android.support.v7.widget.StaggeredGridLayoutManager
 import android.util.Log
+import android.widget.Toast
 import com.nbhope.chia.brvah.adapter.ChoiceAdapter
 import com.nbhope.chia.brvah.bean.ChoiceBean
 import kotlinx.android.synthetic.main.activity_choice.*
@@ -33,13 +34,19 @@ class ChoiceActivity : AppCompatActivity() {
 
             Log.d("zxt", "onCreate() called with: lastVisibleItemPositions = [" + lastVisibleItemPositions!![lastVisibleItemPositions.size - 1] + "]")
         }*/
+
+        mAdapter?.setOnItemCheckListener {
+            Toast.makeText(this,"点击了：${it.size}",Toast.LENGTH_SHORT).show()
+            for (bean in it){
+                //Toast.makeText(this,"点击了：${bean.name}",Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     fun initDatas(): List<ChoiceBean> {
         val datas = ArrayList<ChoiceBean>()
-        for (i in 0..19) {
             datas.add(ChoiceBean("满100减99"))
-            datas.add(ChoiceBean("满100减98", i == 0))
+            datas.add(ChoiceBean("满100减98", true))
             datas.add(ChoiceBean("满100减97"))
             datas.add(ChoiceBean("满100减96"))
             datas.add(ChoiceBean("满100减95"))
@@ -48,7 +55,6 @@ class ChoiceActivity : AppCompatActivity() {
             datas.add(ChoiceBean("满100减92"))
             datas.add(ChoiceBean("满100减91"))
             datas.add(ChoiceBean("满100减90"))
-        }
         return datas
     }
 }
