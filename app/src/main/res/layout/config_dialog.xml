@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+            android:text="提示"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:id="@+id/title"
+            android:layout_marginTop="56dp"/>
+    <TextView
+            android:text="你已支付成功"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:id="@+id/tv_dialog_des"
+            android:layout_marginTop="88dp"/>
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:gravity="center_vertical"
+            android:layout_marginTop="151dp">
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/cancel"
+                  android:gravity="center"
+        android:text="取消"
+        android:layout_weight="1"/>
+        <View android:layout_width="1dp"
+              android:background="#cccccc"
+              android:layout_height="match_parent"/>
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:id="@+id/confirm"
+                  android:gravity="center"
+                  android:text="取消"
+                  android:layout_weight="1"/>
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -26,7 +26,7 @@ public class CheckBoxAdapter extends BaseQuickAdapter<CheckBoxBean,BaseViewHolde
     public CheckBoxAdapter(int layoutResId, @Nullable List<CheckBoxBean> data, @Nullable List<CheckBoxBean> checked) {
         super(layoutResId, data);
         this.lists=data;
-        this.checkedDatas = checkedDatas;
+        this.checkedDatas = checked;
         initMap();
     }
 
@@ -34,9 +34,11 @@ public class CheckBoxAdapter extends BaseQuickAdapter<CheckBoxBean,BaseViewHolde
     protected void convert(BaseViewHolder helper, CheckBoxBean item) {
         helper.setText(R.id.item_name,item.getName());
         CheckBox checkBox = helper.getView(R.id.item_cb);
+
         checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
             }
         });
     }

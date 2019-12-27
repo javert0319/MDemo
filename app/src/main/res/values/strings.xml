@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MDemo</string>
+    <string name="title_activity_dialog">DialogActivity</string>
 </resources>

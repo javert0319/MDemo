@@ -6,17 +6,17 @@ package com.nbhope.chia.brvah.bean;
  * @Author: CHIA
  * @CreateDate: 2019/12/5
  */
-public class CheckBoxBean {
+public class CheckBoxBean extends SelectedBean{
+
     private String name;
     private int age;
-    private boolean checked;
 
-    public boolean isChecked() {
-        return checked;
-    }
+    public CheckBoxBean(){}
 
-    public void setChecked(boolean checked) {
-        this.checked = checked;
+    public CheckBoxBean(int age,String name,boolean isSelected){
+        this.age = age;
+        this.name = name;
+        setSelected(isSelected);
     }
 
     public String getName() {

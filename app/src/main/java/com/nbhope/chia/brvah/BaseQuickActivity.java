@@ -5,7 +5,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.TextView;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.nbhope.chia.R;
 import com.nbhope.chia.brvah.adapter.CheckBoxAdapter;
 import com.nbhope.chia.brvah.bean.CheckBoxBean;
@@ -28,9 +30,8 @@ public class BaseQuickActivity extends AppCompatActivity {
     private CheckBoxAdapter checkAdapter;
     private List<CheckBoxBean> lists;
     private List<CheckBoxBean> checkedDatas;
-
-    private List<String> listDatas=new ArrayList<>();
     private TextView mGetData;
+    private CheckBoxBean checkBoxBean;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,6 +47,14 @@ public class BaseQuickActivity extends AppCompatActivity {
         mRvView.setLayoutManager(linearLayoutManager);
         checkAdapter = new CheckBoxAdapter(R.layout.item_layout, lists,checkedDatas);
         mRvView.setAdapter(checkAdapter);
+
+        checkAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                checkBoxBean = (CheckBoxBean)adapter.getItem(position);
+                assert checkBoxBean != null;
+            }
+        });
     }
 
     private void initView() {

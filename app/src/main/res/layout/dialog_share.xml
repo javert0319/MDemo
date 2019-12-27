@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <EditText
+            android:id="@+id/et_dialog_content"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:hint="请输入评论内容"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        <ImageView android:layout_width="40dp" android:layout_height="40dp"
+                   android:src="@mipmap/broadlink_ic_add_failure"
+                   android:layout_marginTop="@dimen/dp_10"
+                   android:layout_marginLeft="@dimen/dp_10"/>
+
+        <ImageView android:layout_width="@dimen/dp_40" android:layout_height="@dimen/dp_40"
+                   android:src="@mipmap/broadlink_ic_add_failure"
+                   android:layout_marginTop="@dimen/dp_10"
+                   android:layout_marginLeft="@dimen/dp_10"/>
+        <View android:layout_width="0dp" android:layout_height="match_parent"
+              android:layout_weight="1"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:text="发表评论"
+                  android:layout_gravity="center_vertical"
+                  android:textStyle="bold"
+                  android:textSize="18sp"
+                  android:layout_marginRight="@dimen/dp_10"
+                  android:id="@+id/tv_weixin_share"/>
+    </LinearLayout>
+</LinearLayout>

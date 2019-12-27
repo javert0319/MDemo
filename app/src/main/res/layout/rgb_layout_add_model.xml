@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+            android:text="名称"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rgb_tv_model_name" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent" android:textSize="18sp"/>
+    <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="自定义"
+            android:ems="10"
+            android:id="@+id/rgb_et_model_name" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toEndOf="@+id/rgb_tv_model_name"
+            android:layout_marginStart="16dp" android:layout_marginLeft="16dp"/>
+    <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintVertical_weight="1" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/rgb_et_model_name" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" android:id="@+id/rgb_rv_model_choice"/>
+    <Button
+            android:text="渐变"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/rgb_btn_model_jump"
+            tools:layout_editor_absoluteX="52dp"
+            android:id="@+id/rgb_btn_model_shade"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/rgb_rv_model_choice"
+            android:textSize="18sp"/>
+    <Button
+            android:text="跳变"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toRightOf="@+id/rgb_btn_model_shade"
+            app:layout_constraintRight_toRightOf="@+id/rgb_btn_model_stroboscopic"
+            android:id="@+id/rgb_btn_model_jump"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/rgb_rv_model_choice"
+            android:textSize="18sp"/>
+    <Button
+            android:text="频闪"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toRightOf="@+id/rgb_btn_model_jump"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/rgb_btn_model_stroboscopic"
+            android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/rgb_rv_model_choice"
+            android:textSize="18sp"/>
+    <TextView
+            android:text="速度"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rgb_tv_model_speed_des" android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/rgb_btn_model_shade" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="16dp" android:layout_marginStart="16dp" android:textSize="18sp"/>
+    <TextView
+            android:text="16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rgb_tv_model_speed" android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/rgb_btn_model_shade"
+            app:layout_constraintStart_toEndOf="@+id/rgb_tv_model_speed_des" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" android:textSize="18sp"/>
+    <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rgb_pb_model_speed" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/rgb_tv_model_speed" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="8dp" android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
+    <Button
+            android:text="保存"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rgb_btn_model_save" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp" android:layout_marginBottom="32dp"
+            app:layout_constraintBottom_toBottomOf="parent" android:textSize="18sp"/>
+</android.support.constraint.ConstraintLayout>

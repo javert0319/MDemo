@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RadioGroup
+            android:id="@+id/umeinfo_rg_rgb_model"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+                android:id="@+id/umeinfo_rb_dynamic"
+                style="@style/device_music_tab_style"
+                android:layout_marginRight="@dimen/dp_10"
+                android:background="@drawable/device_music_selector_tab_left"
+                android:text="动态模式"/>
+
+        <RadioButton
+                android:id="@+id/umeinfo_rb_custom"
+                style="@style/device_music_tab_style"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:background="@drawable/device_music_selector_tab_right"
+                android:text="自定义"/>
+
+    </RadioGroup>
+    <FrameLayout
+            android:id="@+id/umeinfo_fl_rgb_container"
+            android:layout_width="395dp"
+            android:layout_height="546dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/umeinfo_rg_rgb_model"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"/>
+
+</android.support.constraint.ConstraintLayout>
