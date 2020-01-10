@@ -47,7 +47,11 @@
         </activity>
         <activity android:name=".pipeta.SeekBarActivity">
         </activity>
-        <activity android:name=".eventbas.EventBasActivity">
+        <activity android:name=".viewpager.ViewPagerActivity">
+        </activity>
+        <activity android:name=".immersion.ImmersionTypeActivity"
+                  android:theme="@style/NoActionBarTheme"/>
+        <activity android:name=".immersion.ImmersionActivity">
         </activity>
     </application>
 

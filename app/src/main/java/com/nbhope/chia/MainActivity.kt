@@ -10,10 +10,12 @@ import com.nbhope.chia.brvah.DimmerActivity
 import com.nbhope.chia.brvah.SelectedActivity
 import com.nbhope.chia.cache.CacheActivity
 import com.nbhope.chia.dialog.DialogActivity
+import com.nbhope.chia.immersion.ImmersionActivity
 import com.nbhope.chia.pipeta.MoveActivity
 import com.nbhope.chia.pipeta.PipetaActivity
 import com.nbhope.chia.pipeta.SeekBarActivity
 import com.nbhope.chia.rxjava.RxJavaActivity
+import com.nbhope.chia.viewpager.ViewPagerActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -36,6 +38,8 @@ class MainActivity : AppCompatActivity() {
         data.add("DialogFragment")
         data.add("Dimmer")
         data.add("SeekBar")
+        data.add("ViewPager")
+        data.add("沉浸式")
         return data
     }
 
@@ -54,6 +58,8 @@ class MainActivity : AppCompatActivity() {
                 7 -> targetClass = DialogActivity::class.java
                 8 -> targetClass = DimmerActivity::class.java
                 9 -> targetClass = SeekBarActivity::class.java
+                10 -> targetClass = ViewPagerActivity::class.java
+                11 -> targetClass = ImmersionActivity::class.java
             }
             if (targetClass != null){
                 val intent = Intent(this@MainActivity,targetClass)

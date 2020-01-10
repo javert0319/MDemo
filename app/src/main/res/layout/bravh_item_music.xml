@@ -3,10 +3,9 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_margin="5dp"
-        android:background="@color/colorPrimaryDark"
-        android:gravity="center"
+        android:layout_height="60dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
     <ImageView
@@ -14,10 +13,12 @@
             android:layout_marginLeft="@dimen/dp_10"
             android:layout_height="wrap_content"
             app:srcCompat="@android:drawable/star_big_on"
+            android:visibility="gone"
             android:id="@+id/iv_bravh_icon"/>
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:id="@+id/tv_bravh_txt"
               android:layout_marginLeft="@dimen/dp_10"
+              android:textSize="18sp"
               android:text="@string/app_name"/>
 </LinearLayout>

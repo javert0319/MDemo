@@ -8,6 +8,8 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 
+import java.util.Random;
+
 /**
  * @ClassName: NetUtils
  * @Description: 网络判断
@@ -45,7 +47,6 @@ public class NetUtils {
      * 检查是否是移动网络
      */
     public static boolean isMobile(Context context) {
-
         NetworkInfo info = getNetworkInfo(context);
         if (info != null) {
             if (info.getType() == ConnectivityManager.TYPE_MOBILE) {
@@ -92,5 +93,10 @@ public class NetUtils {
             }
         }
         return ssid;
+    }
+
+    public static int getRandom(int end){
+        Random random = new Random();
+        return random.nextInt(end);
     }
 }

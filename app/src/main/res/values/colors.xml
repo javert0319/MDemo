@@ -7,4 +7,9 @@
     <color name="umeinfo_back">#0096ff</color>
     <color name="umeinfo_rgb_txt">#555454</color>
     <color name="umeinfo_rgb_des">#999999</color>
+
+    <color name="blue">#65B6EF</color>
+    <color name="shape1">#5d8df7</color>
+    <color name="shape2">#5EB9F8</color>
+    <color name="shape3">#5CC2F8</color>
 </resources>

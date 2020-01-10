@@ -1,14 +1,20 @@
 package com.nbhope.chia.dialog
 
+import android.app.Dialog
+import android.app.DialogFragment
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
-import android.widget.Toast
 import com.afollestad.materialdialogs.MaterialDialog
 import com.nbhope.chia.R
-import com.nbhope.chia.dialog.style.CommonDialog
-import com.nbhope.chia.dialog.style.ConfirmDialog
 import kotlinx.android.synthetic.main.activity_dialog.*
+import android.view.ViewGroup
+import android.view.LayoutInflater
+import android.view.View
+import android.graphics.drawable.ColorDrawable
+import android.view.Window
+import android.widget.RelativeLayout
 
 class DialogActivity : AppCompatActivity() {
 
@@ -37,7 +43,38 @@ class DialogActivity : AppCompatActivity() {
             dialog.show()
         }
         btn_dialog_style3.setOnClickListener {
+            val ft = fragmentManager.beginTransaction()
+            val newFragment = MyDialogFragment.newInstance()
+            newFragment.show(ft, "dialog")
+        }
+    }
 
+    class MyDialogFragment : DialogFragment() {
+
+        override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+            return inflater?.inflate(R.layout.fragment_dialog, container, false)
+        }
+
+        override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+            // the content
+            val root = RelativeLayout(activity)
+            root.layoutParams =
+                    ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+
+            // creating the fullscreen dialog
+            val dialog = Dialog(activity)
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            dialog.setContentView(root)
+            dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            dialog.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+
+            return dialog
+        }
+        companion object {
+
+            internal fun newInstance(): MyDialogFragment {
+                return MyDialogFragment()
+            }
         }
     }
 }

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".immersion.ImmersionTypeActivity">
+
+    <RelativeLayout
+            android:id="@+id/rl_immersion_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:src="@mipmap/ic_immersion_bg"
+                android:scaleType="fitXY"/>
+
+        <ImageView
+                android:id="@+id/iv_immersion_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="19dp"
+                android:layout_marginLeft="19dp"
+                android:layout_marginTop="19dp"
+                app:srcCompat="@mipmap/scene_back_button" />
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/rl_immersion_none"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:visibility="gone"
+            android:background="@color/blue">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="标题"
+                android:textColor="#ffffff"
+                android:textSize="16sp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/rl_immersion_actionbar"
+            android:layout_width="match_parent"
+            android:visibility="gone"
+            android:layout_height="match_parent">
+
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:src="@mipmap/ic_immersion_bg"
+                android:scaleType="fitXY"/>
+
+    </RelativeLayout>
+</LinearLayout>
+
+
