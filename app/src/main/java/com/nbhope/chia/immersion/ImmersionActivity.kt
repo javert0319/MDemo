@@ -21,9 +21,9 @@ class ImmersionActivity : AppCompatActivity() {
                 .navigation()
         }
         btn_immersion_actionbar.setOnClickListener {
-            /*ARouter.getInstance().build("/mdemo/immersion")
+            ARouter.getInstance().build("/mdemo/immersion_mall")
                 .withString("type","actionBar")
-                .navigation()*/
+                .navigation()
             Log.i("jiawei","ImmersionActivity Random ${NetUtils.getRandom(20)}")
         }
         btn_immersion_image.setOnClickListener {

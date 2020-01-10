@@ -49,9 +49,15 @@
         </activity>
         <activity android:name=".viewpager.ViewPagerActivity">
         </activity>
-        <activity android:name=".immersion.ImmersionTypeActivity"
-                  android:theme="@style/NoActionBarTheme"/>
+        <activity
+                android:name=".immersion.ImmersionTypeActivity"
+                android:theme="@style/NoActionBarTheme"/>
         <activity android:name=".immersion.ImmersionActivity">
+        </activity>
+        <activity
+                android:name=".immersion.ImmersionMallActivity"
+                android:label="@string/title_activity_immersion_mall"
+        android:theme="@style/NoActionBarTheme">
         </activity>
     </application>
 
