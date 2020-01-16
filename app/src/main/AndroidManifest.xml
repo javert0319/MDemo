@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.nbhope.chia">
+          package="com.kit.chia">
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -57,7 +57,20 @@
         <activity
                 android:name=".immersion.ImmersionMallActivity"
                 android:label="@string/title_activity_immersion_mall"
-        android:theme="@style/NoActionBarTheme">
+                android:theme="@style/NoActionBarTheme">
+        </activity>
+        <activity
+                android:name=".netease.NeteaseActivity"
+                android:theme="@style/NoActionBarTheme">
+        </activity>
+
+        <service
+                android:name=".netease.service.MusicService"
+                android:enabled="true"
+                android:exported="false"/>
+
+        <activity android:name=".netease.MusicTempActivity"
+                android:theme="@style/NoActionBarTheme">
         </activity>
     </application>
 
