@@ -7,6 +7,8 @@ import java.io.Serializable;
  */
 
 public class MusicData implements Serializable{
+    /*音乐资源编号*/
+    private String musicId;
     /*音乐资源id*/
     private int mMusicRes;
     /*专辑图片id*/
@@ -16,11 +18,16 @@ public class MusicData implements Serializable{
     /*作者*/
     private String mMusicAuthor;
 
-    public MusicData(int mMusicRes, int mMusicPicRes, String mMusicName, String mMusicAuthor) {
+    public MusicData(String musicId,int mMusicRes, int mMusicPicRes, String mMusicName, String mMusicAuthor) {
+        this.musicId = musicId;
         this.mMusicRes = mMusicRes;
         this.mMusicPicRes = mMusicPicRes;
         this.mMusicName = mMusicName;
         this.mMusicAuthor = mMusicAuthor;
+    }
+
+    public String getMusicId() {
+        return musicId;
     }
 
     public int getMusicRes() {

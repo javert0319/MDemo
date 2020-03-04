@@ -29,13 +29,18 @@ public class DimmerAdapter extends BaseQuickAdapter<DimmerBean,BaseViewHolder> {
 
     @Override
     protected void convert(BaseViewHolder helper, DimmerBean item) {
-        helper.setText(R.id.tv_dimmer_name,item.getDimmerName());
-        Log.i("jiawei","DimmerActivity onActivityResult convert: "+item.getActionName());
+        TextView view = helper.getView(R.id.tv_dimmer_name);
+        view.setSelected(true);
+        view.setText(item.getDimmerName());
+        //helper.setText(R.id.tv_dimmer_name,item.getDimmerName());
+        ImageView dimmerIcon = helper.getView(R.id.iv_dimmer_icon);
         if (item.isSub()){
-            ImageView dimmerIcon = helper.getView(R.id.iv_dimmer_icon);
             dimmerIcon.setVisibility(View.VISIBLE);
+        }else {
+            dimmerIcon.setVisibility(View.GONE);
         }
-        if (item.getActionName() != null){
+        if (item.isSub()&&item.getActionName() != null){
+            Log.i("jiawei","DimmerActivity onActivityResult convert: "+ item.getDimmerName()+"---" + item.getActionName());
             TextView tvAction = helper.getView(R.id.tv_dimmer_action);
             tvAction.setVisibility(View.VISIBLE);
             tvAction.setText(item.getActionName());

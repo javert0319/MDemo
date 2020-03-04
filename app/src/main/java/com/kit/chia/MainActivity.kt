@@ -18,6 +18,7 @@ import com.kit.chia.pipeta.SeekBarActivity
 import com.kit.chia.rxjava.RxJavaActivity
 import com.kit.chia.viewpager.ViewPagerActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 

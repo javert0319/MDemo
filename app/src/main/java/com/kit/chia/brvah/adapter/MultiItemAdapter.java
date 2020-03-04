@@ -21,7 +21,6 @@ public class MultiItemAdapter extends BaseMultiItemQuickAdapter<MtestEntity, Bas
      *
      * @param data A new list is created out of this one to avoid mutable list
      *
-     *             未能查询到对应房屋发票信息
      */
     public MultiItemAdapter(List<MtestEntity> data) {
         super(data);

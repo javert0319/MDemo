@@ -32,6 +32,7 @@ import com.kit.chia.netease.widget.DiscView
 import com.kit.chia.netease.widget.DiscView.DURATION_NEEDLE_ANIAMTOR
 import com.kit.chia.netease.widget.DiscView.MusicChangedStatus.*
 import com.kit.chia.utils.ToastUtils
+import java.util.*
 
 
 class NeteaseActivity : BaseActivity() , DiscView.IPlayInfo{
@@ -47,7 +48,7 @@ class NeteaseActivity : BaseActivity() , DiscView.IPlayInfo{
         override fun handleMessage(msg: Message) {
             super.handleMessage(msg)
             musicSeekBar.progress = musicSeekBar.progress + 1000
-            tvTotalTime.text = duration2Time(musicSeekBar.progress)
+            //tvTotalTime.text = duration2Time(musicSeekBar.progress)
             startUpdateSeekBarProgress()
         }
     }
@@ -78,13 +79,15 @@ class NeteaseActivity : BaseActivity() , DiscView.IPlayInfo{
                 seekTo(seekBar?.progress)
                 startUpdateSeekBarProgress()
             }
-
         })
         tvCurrentTime.text = duration2Time(0)
         tvTotalTime.text = duration2Time(0)
         mDisc?.setMusicDataList(mMusicDatas)
         mDisc?.setPlayInfoListener(this)
-
+        if (!mMusicDatas.isEmpty()){
+            supportActionBar?.title = mMusicDatas[0].musicName
+            supportActionBar?.subtitle = mMusicDatas[0].musicAuthor
+        }
         ivPlayOrPause.setOnClickListener {
             mDisc?.playOrPause()
         }
@@ -93,10 +96,9 @@ class NeteaseActivity : BaseActivity() , DiscView.IPlayInfo{
         }
         ivNext.setOnClickListener {
             //mDisc?.next()
-            startActivity(Intent(this,MusicTempActivity::class.java))
+            startActivity(Intent(this,Lock9ViewActivity::class.java))
         }
     }
-
     @RequiresApi(Build.VERSION_CODES.M)
     private fun try2UpdateMusicPicBackground(musicPicRes:Int){
         if (mRootLayout?.isNeed2UpdateBackground(musicPicRes)!!){
@@ -179,14 +181,15 @@ class NeteaseActivity : BaseActivity() , DiscView.IPlayInfo{
     }
 
     private fun initMusicDatas() {
-        val musicData1 = MusicData(R.raw.music1, R.raw.ic_music1, "寻", "三亩地")
-        val musicData2 = MusicData(R.raw.music2, R.raw.ic_music2, "Nightingale", "YANI")
-        val musicData3 = MusicData(R.raw.music3, R.raw.ic_music3, "Cornfield Chase", "Hans Zimmer")
+        val musicData1 = MusicData("netease0001",R.raw.music1, R.raw.ic_music1, "寻", "三亩地")
+        val musicData2 = MusicData("netease0002",R.raw.music2, R.raw.ic_music2, "Nightingale", "YANI")
+        val musicData3 = MusicData("netease0003",R.raw.music3, R.raw.ic_music3, "Cornfield Chase", "Hans Zimmer")
+        val musicData4 = MusicData("netease0004",R.raw.music4, R.raw.ic_music4, "童话镇", "陈一发儿")
 
         mMusicDatas.add(musicData1)
         mMusicDatas.add(musicData2)
         mMusicDatas.add(musicData3)
-
+        mMusicDatas.add(musicData4)
         val intent = Intent(this, MusicService::class.java)
         intent.putExtra(GlobalParameters.getPARAM_MUSIC_LIST(), mMusicDatas)
         startService(intent)
@@ -194,6 +197,7 @@ class NeteaseActivity : BaseActivity() , DiscView.IPlayInfo{
 
     inner class MusicReceiver:BroadcastReceiver(){
         override fun onReceive(context: Context?, intent: Intent?) {
+
             val action = intent?.action
             when(action) {
                 MusicService.ACTION_STATUS_MUSIC_PLAY -> {
@@ -264,11 +268,11 @@ class NeteaseActivity : BaseActivity() , DiscView.IPlayInfo{
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onMusicPicChanged(musicPicRes: Int) {
-        try2UpdateMusicPicBackground(musicPicRes)
+        //try2UpdateMusicPicBackground(musicPicRes)
     }
 
     override fun onMusicChanged(musicChangedStatus: DiscView.MusicChangedStatus?) {
-        ToastUtils.toast(this, "status: $musicChangedStatus")
+        //ToastUtils.toast(this, "status: $musicChangedStatus")
         when(musicChangedStatus){
             PLAY -> play()
             PAUSE -> pause()
@@ -279,7 +283,7 @@ class NeteaseActivity : BaseActivity() , DiscView.IPlayInfo{
     }
 
     private fun stop() {
-        stopUpdateSeekBarProgree();
+        stopUpdateSeekBarProgree()
         ivPlayOrPause.setImageResource(R.drawable.ic_play)
         tvCurrentTime.text = duration2Time(0)
         tvTotalTime.text = duration2Time(0)

@@ -12,4 +12,7 @@
     <color name="shape1">#5d8df7</color>
     <color name="shape2">#5EB9F8</color>
     <color name="shape3">#5CC2F8</color>
+
+    <color name="red_light">#ffff4444</color>
+    <color name="blue_light">#ff33b5e5</color>
 </resources>

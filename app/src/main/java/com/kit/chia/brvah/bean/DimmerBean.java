@@ -1,12 +1,14 @@
 package com.kit.chia.brvah.bean;
 
+import java.io.Serializable;
+
 /**
  * @ClassName: DimmerBean
  * @Description: 作用描述
  * @Author: CHIA
  * @CreateDate: 2019/12/20
  */
-public class DimmerBean {
+public class DimmerBean implements Serializable {
 
     private String dimmerName;
 

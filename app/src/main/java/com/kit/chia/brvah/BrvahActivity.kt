@@ -61,17 +61,21 @@ class BrvahActivity : AppCompatActivity() {
 
         manager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int): Int {
-                if (position < 6){
+                return when {
+                    position < 6 -> 6
+                    position in 6..7 -> 3
+                    position in 8..10 -> 2
+                    position in 11..12 -> 3
+                    else -> 2
+                }
+                /*val mod = position % 6
+                if(mod == 0){
                     return 6
-                }else if (position in 6..7){
-                    return 3
-                }else if (position in 8..10){
-                    return 2
-                }else if (position in 11..12){
+                } else if(mod == 1 || mod == 2) {
                     return 3
                 } else {
                     return 2
-                }
+                }*/
             }
         }
     }
